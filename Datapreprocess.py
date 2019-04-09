@@ -11,10 +11,10 @@ import os
 import matplotlib.pyplot as plt
 
 #load datset
-def getData():
+def getData(filepath):
   rgb_list = []
   gray_list = []
-  filepath = '/media/aayush/Work/Work/Github/Generative_models/Autoencoders/ImageColourization/flower-color-images'
+  # filepath = '/media/aayush/Work/Work/Github/Generative_models/Autoencoders/ImageColourization/flower-color-images'
   file_path = glob.glob(os.path.join(filepath,'*.png'))
 
   for img_path  in file_path:
@@ -27,6 +27,8 @@ def getData():
 
   rgb_images = np.stack(rgb_list,axis=0)
   gray_images = np.stack(gray_list,axis=0)
+  gray_images = np.reshape(gray_images,(len(gray_images),224,224,1))
+
   print(np.shape(rgb_images),np.shape(gray_images))
   return rgb_images , gray_images
 
