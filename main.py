@@ -21,9 +21,13 @@ rgb_data = rgb_data / 255.0
 gray_data =gray_data / 255.0
 print("RGB data:{},Gray data:{}".format(np.shape(rgb_data),np.shape(gray_data)))
 
+
+model_filepath = '/media/aayush/Work/Work/Github/Generative_models/ColoriseImage/weights/cp-{epoch:04d}.ckpt'
+
+
 #train models
 autoencoder = Autoencoder()
-autoencoder.train(gray_data ,rgb_data, gray_data,rgb_data ,16 ,1)
+autoencoder.train(gray_data ,rgb_data, gray_data,rgb_data ,16 ,3000,model_filepath)
 decoder_image = autoencoder.getDecodedImage(gray_data)
 print(np.shape(decoder_image))
 
