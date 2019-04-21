@@ -24,7 +24,7 @@ Download the flower dataset from [here](https://www.kaggle.com/olgabelitskaya/fl
 ## Results
 ### Result after 3000 epochs
 - First row contains ground truth gray scale images.
-- Second row contains ground truth rgb rgb_images.
+- Second row contains ground truth rgb images.
 - Third row contains images generated from the network.
 ![Results](https://github.com/Aayushktyagi/Gray-to-RGB/blob/master/Results/Results_e_3000.png)
 
