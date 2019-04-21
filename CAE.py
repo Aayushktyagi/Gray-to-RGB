@@ -1,9 +1,7 @@
-'''
-Convolutional Autoencoders
-'''
 import tensorflow as tf
 from tensorflow.keras.layers import Input , Conv2D , UpSampling2D,MaxPooling2D
 from tensorflow.keras.models import Model
+
 
 class Autoencoder(object):
     '''
@@ -32,15 +30,17 @@ class Autoencoder(object):
         decoding_conv_layer3 = UpSampling2D((2,2))(decoding_conv_layer3)
         decoding_conv_layer4 = Conv2D(8,(3,3),activation = 'relu',padding = 'same')(decoding_conv_layer3)
         decoding_conv_layer4 = UpSampling2D((2,2))(decoding_conv_layer4)
-        decoding_conv_layer5 = Conv2D(4,(3,3),activation = 'relu',padding = 'same')(decoding_conv_layer4)
+        #decoding_conv_layer5 = Conv2D(4,(3,3),activation = 'relu',padding = 'same')(decoding_conv_layer4)
         #decoding_conv_layer5 = UpSampling2D((2,2))(decoding_conv_layer5)
-        output_layer = Conv2D(3,(3,3),activation = 'sigmoid',padding = 'same')(decoding_conv_layer5)
+        output_layer = Conv2D(3,(3,3),activation = 'sigmoid',padding = 'same')(decoding_conv_layer4)
 
+        #loss_function=tf.reduce_mean(tf.squared_difference(output_layer , ))
         self._model = Model(input_layer , output_layer)
         self._model.compile(optimizer = 'adam' , loss = 'binary_crossentropy')
         self._model.summary()
 
     def train(self, input_train,output_train,input_test,output_test,batch_size,epochs):
+
         self._model.fit(input_train,
                         output_train,
                         batch_size = batch_size,
