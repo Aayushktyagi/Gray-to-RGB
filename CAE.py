@@ -2,6 +2,7 @@ import os
 import tensorflow as tf
 from tensorflow.keras.layers import Input , Conv2D , UpSampling2D,MaxPooling2D
 from tensorflow.keras.models import Model
+import matplotlib.pyplot as plt
 
 
 class Autoencoder(object):
@@ -46,7 +47,7 @@ class Autoencoder(object):
         # Create checkpoint callback
         cp_callback = tf.keras.callbacks.ModelCheckpoint(checkpoint_path,
                                                  save_weights_only=True,
-                                                 verbose=1)
+                                                 verbose=1,period=5)
 
         self._model.fit(input_train,
                         output_train,
@@ -59,3 +60,12 @@ class Autoencoder(object):
     def getDecodedImage(self,test_image):
         decoded_image = self._model.predict(test_image)
         return decoded_image
+
+    def showLoss(self):
+        plt.plot(self._model.history.history['loss'])
+        # plt.plot(history.history['val_loss'])
+        plt.title('Model loss')
+        plt.ylabel('Loss')
+        plt.xlabel('Epoch')
+        plt.legend(['Train'], loc='upper left')
+        plt.show()

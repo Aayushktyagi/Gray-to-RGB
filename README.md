@@ -8,8 +8,9 @@ Download the flower dataset from [here](https://www.kaggle.com/olgabelitskaya/fl
 > tar -xvf filename
 
 > mv ./filename/flower_images ../../
+
 - Training
-> python main.py
+> python main.py ./flower_images
 
 ## Network Architecture
 

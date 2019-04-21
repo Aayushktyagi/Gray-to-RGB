@@ -27,11 +27,13 @@ model_filepath = '/media/aayush/Work/Work/Github/Generative_models/ColoriseImage
 
 #train models
 autoencoder = Autoencoder()
-autoencoder.train(gray_data ,rgb_data, gray_data,rgb_data ,16 ,3000,model_filepath)
+autoencoder.train(gray_data ,rgb_data, gray_data,rgb_data ,16 ,200,model_filepath)
 decoder_image = autoencoder.getDecodedImage(gray_data)
 print(np.shape(decoder_image))
 
 #visualization
+
+autoencoder.showLoss()
 plt.figure(figsize = (20,4))
 
 for i in range(10):
