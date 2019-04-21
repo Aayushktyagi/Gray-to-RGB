@@ -13,7 +13,7 @@ Download the flower dataset from [here](https://www.kaggle.com/olgabelitskaya/fl
 > python main.py ./flower_images
 
 
-##Loss Graph
+## Loss Graph
 - Graphs depicts Training loss
 ![Model_loss](https://github.com/Aayushktyagi/Gray-to-RGB/blob/master/Results/Model_loss.png)
 
@@ -28,7 +28,7 @@ Download the flower dataset from [here](https://www.kaggle.com/olgabelitskaya/fl
 - Third row contains images generated from the network.
 ![Results](https://github.com/Aayushktyagi/Gray-to-RGB/blob/master/Results/Results_e_3000.png)
 
-###Conclusion
+## Conclusion
 Convolutional Autoencoder can be used to convert gray scale images into rgb images.Encoder is able
 to effectively learn images representaion into latent vector and decoder is able to map learned
 image representaion into color image.
