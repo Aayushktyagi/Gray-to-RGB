@@ -1,6 +1,9 @@
 # Image Colorization using Autoencoders
 
 Convert an gray scale image into rgb image using Convolutional Autoencoder
+
+## Requirements
+> pip3 install tensorflow-gpu==1.13.1
 ## How to use
 Download the flower dataset from [here](https://www.kaggle.com/olgabelitskaya/flower-color-images).Dataset contains 210 flower images.
 
