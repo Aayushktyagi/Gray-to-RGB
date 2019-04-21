@@ -1,3 +1,4 @@
+import os
 import tensorflow as tf
 from tensorflow.keras.layers import Input , Conv2D , UpSampling2D,MaxPooling2D
 from tensorflow.keras.models import Model
@@ -39,14 +40,21 @@ class Autoencoder(object):
         self._model.compile(optimizer = 'adam' , loss = 'binary_crossentropy')
         self._model.summary()
 
-    def train(self, input_train,output_train,input_test,output_test,batch_size,epochs):
+    def train(self, input_train,output_train,input_test,output_test,batch_size,epochs,checkpoint_path):
+        checkpoint_dir = os.path.dirname(checkpoint_path)
+
+        # Create checkpoint callback
+        cp_callback = tf.keras.callbacks.ModelCheckpoint(checkpoint_path,
+                                                 save_weights_only=True,
+                                                 verbose=1)
 
         self._model.fit(input_train,
                         output_train,
                         batch_size = batch_size,
                         epochs = epochs,
                         validation_data = (input_test,
-                                            output_test))
+                                            output_test),
+                        callbacks = [cp_callback])
 
     def getDecodedImage(self,test_image):
         decoded_image = self._model.predict(test_image)
