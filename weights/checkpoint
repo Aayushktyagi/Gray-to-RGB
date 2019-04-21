@@ -1,2 +1,2 @@
-model_checkpoint_path: "/media/aayush/Work/Work/Github/Generative_models/ColoriseImage/weights/cp-0001.ckpt"
-all_model_checkpoint_paths: "/media/aayush/Work/Work/Github/Generative_models/ColoriseImage/weights/cp-0001.ckpt"
+model_checkpoint_path: "cp-3000.ckpt"
+all_model_checkpoint_paths: "cp-3000.ckpt"
