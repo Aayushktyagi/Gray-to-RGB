@@ -19,6 +19,7 @@ def getData(filepath):
 
   for img_path  in file_path:
     rgb_img = cv2.imread(img_path)
+    rgb_img = cv2.cvtColor(rgb_img,cv2.COLOR_BGR2RGB)
     gray_img = cv2.cvtColor(rgb_img, cv2.COLOR_BGR2GRAY)
     rgb_img = cv2.resize(rgb_img,(224,224))
     gray_img = cv2.resize(gray_img,(224,224))
